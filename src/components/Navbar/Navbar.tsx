@@ -9,16 +9,16 @@ import SearchInputs from "./SearchInputs";
 const Navbar: React.FC = () => {
   const [user, loading, error] = useAuthState(auth);
   return (
-    <Flex bg="white" height="44px" padding="6px 12px">
+    <Flex bg="white" height="49px" padding="6px 15px">
       <Flex align="center">
         <Image
           src="/images/redditFace.svg"
-          height="30px"
+          height="32px"
           mr={{ base: "2", md: "0" }}
         />
         <Image
           src="/images/redditText.svg"
-          height="46px"
+          height="48px"
           display={{ base: "none", md: "unset" }}
         />
       </Flex>

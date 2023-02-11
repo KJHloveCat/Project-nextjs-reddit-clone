@@ -1,6 +1,8 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Menu, MenuButton, MenuList, Flex } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, Flex, Icon, Text } from "@chakra-ui/react";
 import React from "react";
+import { TiHome } from "react-icons/ti";
+import Communities from "./Communities";
 
 const Directory: React.FC = () => {
   return (
@@ -11,13 +13,25 @@ const Directory: React.FC = () => {
         borderRadius={4}
         _hover={{ outline: "1px solid", outlineColor: "gray.200" }}
       >
-        <Flex align="center">
+        <Flex
+          align="center"
+          justify="space-between"
+          width={{ base: "auto", lg: "200px" }}
+        >
           <Flex align="center">
-            <ChevronDownIcon />
+            <Icon fontSize={24} mr={{ base: 1, md: 2 }} as={TiHome} />
+            <Flex display={{ base: "none", lg: "flex" }}>
+              <Text fontSize={14} fontWeight={500} mr={10}>
+                Home
+              </Text>
+            </Flex>
           </Flex>
+          <ChevronDownIcon />
         </Flex>
       </MenuButton>
-      <MenuList></MenuList>
+      <MenuList>
+        <Communities />
+      </MenuList>
     </Menu>
   );
 };

@@ -15,7 +15,7 @@ const Icons: React.FC = () => {
         display={{ base: "none", md: "flex" }}
         align="center"
         borderRight="1px solid"
-        borderColor="gray.200"
+        borderColor="#1A1A1B1A"
       >
         <Flex
           mr={1.5}
@@ -23,7 +23,7 @@ const Icons: React.FC = () => {
           padding={1}
           cursor="pointer"
           borderRadius={4}
-          _hover={{ bg: "gray.200" }}
+          _hover={{ bg: "#1A1A1B1A" }}
         >
           <Icon as={BsArrowUpRightCircle} fontSize={20} />
         </Flex>
@@ -33,7 +33,7 @@ const Icons: React.FC = () => {
           padding={1}
           cursor="pointer"
           borderRadius={4}
-          _hover={{ bg: "gray.200" }}
+          _hover={{ bg: "#1A1A1B1A" }}
         >
           <Icon as={IoFilterCircleOutline} fontSize={22} />
         </Flex>
@@ -43,7 +43,7 @@ const Icons: React.FC = () => {
           padding={1}
           cursor="pointer"
           borderRadius={4}
-          _hover={{ bg: "gray.200" }}
+          _hover={{ bg: "#1A1A1B1A" }}
         >
           <Icon as={IoVideocamOutline} fontSize={22} />
         </Flex>
@@ -55,7 +55,7 @@ const Icons: React.FC = () => {
           padding={1}
           cursor="pointer"
           borderRadius={4}
-          _hover={{ bg: "gray.200" }}
+          _hover={{ bg: "#1A1A1B1A" }}
         >
           <Icon as={BsChatDots} fontSize={20} />
         </Flex>
@@ -65,7 +65,7 @@ const Icons: React.FC = () => {
           padding={1}
           cursor="pointer"
           borderRadius={4}
-          _hover={{ bg: "gray.200" }}
+          _hover={{ bg: "#1A1A1B1A" }}
         >
           <Icon as={IoNotificationsOutline} fontSize={20} />
         </Flex>
@@ -76,7 +76,7 @@ const Icons: React.FC = () => {
           padding={1}
           cursor="pointer"
           borderRadius={4}
-          _hover={{ bg: "gray.200" }}
+          _hover={{ bg: "#1A1A1B1A" }}
         >
           <Icon as={GrAdd} fontSize={20} />
         </Flex>

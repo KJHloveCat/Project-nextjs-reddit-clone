@@ -72,8 +72,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
           <>
             <MenuItem
               fontSize="10pt"
-              fontWeight={700}
-              _hover={{ bg: "blue.500", color: "white" }}
+              fontWeight={600}
+              _hover={{ bg: "#0000000A" }}
             >
               <Flex align="center">
                 <Icon fontSize={20} mr={2} as={CgProfile} />
@@ -83,8 +83,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
             <MenuDivider />
             <MenuItem
               fontSize="10pt"
-              fontWeight={700}
-              _hover={{ bg: "blue.500", color: "white" }}
+              fontWeight={600}
+              _hover={{ bg: "#0000000A" }}
               onClick={() => signOut(auth)}
             >
               <Flex align="center">
@@ -97,8 +97,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
           <>
             <MenuItem
               fontSize="10pt"
-              fontWeight={700}
-              _hover={{ bg: "blue.500", color: "white" }}
+              fontWeight={600}
+              _hover={{ bg: "#0000000A" }}
               onClick={() => setAuthModalState({ open: true, view: "login" })}
             >
               <Flex align="center">
