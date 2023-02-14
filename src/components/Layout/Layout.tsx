@@ -1,4 +1,3 @@
-import React, { ReactComponentElement } from "react";
 import Navbar from "../Navbar/Navbar";
 
 interface ChildrenProps {
