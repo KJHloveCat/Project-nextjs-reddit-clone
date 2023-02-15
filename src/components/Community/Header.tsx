@@ -3,6 +3,7 @@ import { UpDownIcon } from "@/src/components/Community/HeaderIcon";
 import { Box, Button, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import useCommunityData from "@/src/hooks/useCommunityData";
+import { BellIcon } from "@chakra-ui/icons";
 
 type HeaderProps = {
   communityData: Community;
@@ -54,20 +55,32 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
               </Text>
             </Flex>
 
-            <Button
-              variant={isJoined ? "outline" : "solid"}
-              fontWeight="700"
-              fontSize="14px"
-              width="96px"
-              height="32px"
-              mt={2}
-              isLoading={loading}
-              onClick={() => onJoinOrLeaveCommunity(communityData, isJoined)}
-              onMouseOver={over}
-              onMouseOut={out}
-            >
-              {isJoined ? onBtnText : "Join"}
-            </Button>
+            <Flex mt={2}>
+              <Button
+                variant={isJoined ? "outline" : "solid"}
+                fontWeight="700"
+                fontSize="14px"
+                width="96px"
+                height="32px"
+                isLoading={loading}
+                onClick={() => onJoinOrLeaveCommunity(communityData, isJoined)}
+                onMouseOver={over}
+                onMouseOut={out}
+              >
+                {isJoined ? onBtnText : "Join"}
+              </Button>
+              {isJoined && (
+                <Button
+                  variant="outline"
+                  width="30px"
+                  height="32px"
+                  ml={2}
+                  borderRadius="full"
+                >
+                  <Icon width="25px" height="25px" as={BellIcon} />
+                </Button>
+              )}
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
