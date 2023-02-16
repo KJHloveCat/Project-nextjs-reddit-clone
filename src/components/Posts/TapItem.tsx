@@ -20,7 +20,7 @@ const TapItem: React.FC<TapItemProps> = ({
       flexGrow={1}
       p="14px 0px"
       cursor="pointer"
-      _hover={{ bg: "#0079D30D" }}
+      _hover={{ color: "#0079D3", bg: "#0079D30D" }}
       color={selected ? "blue.500" : "gray.500"}
       bg={selected ? "#0079D30D" : "white"}
       borderWidth={selected ? "0px 1px 2px 0px" : "0px 1px 2px 0px"}
@@ -29,6 +29,7 @@ const TapItem: React.FC<TapItemProps> = ({
       onClick={() => {
         setSelectedTab(item.title);
       }}
+      borderRadius="4px"
     >
       <Flex align="center" height="20px" mr={2}>
         <Icon as={item.icon} boxSize={6} />

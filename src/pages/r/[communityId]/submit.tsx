@@ -1,19 +1,29 @@
-import PageContent from "@/src/components/Layout/PageContent";
+import PostPageContent from "@/src/components/Layout/PostPageContent";
 import NewPostForm from "@/src/components/Posts/NewPostForm";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Img, Text } from "@chakra-ui/react";
 import React from "react";
 
 const SubmitPostPage: React.FC = () => {
   return (
-    <PageContent>
+    <PostPageContent>
       <>
-        <Box p="14px 0px" borderBottom="1px solid rgba(255,255,255,0.5)">
+        <Box
+          borderBottom="1px solid rgba(255,255,255,0.5)"
+          margin="16px 0px"
+          padding="4px"
+          height="41px"
+        >
           <Text fontWeight={600}>Create a post</Text>
         </Box>
         <NewPostForm />
       </>
-      <>{/* About */}</>
-    </PageContent>
+      <>
+        <Box w="310px" bg="tomato" mt={10}>
+          This is Box
+        </Box>
+        {/* About */}{" "}
+      </>
+    </PostPageContent>
   );
 };
 export default SubmitPostPage;

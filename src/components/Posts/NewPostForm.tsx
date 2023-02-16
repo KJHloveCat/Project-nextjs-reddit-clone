@@ -5,6 +5,7 @@ import { BiPoll } from "react-icons/bi";
 import { IoDocumentText, IoImageOutline } from "react-icons/io5";
 import { AiFillCloseCircle } from "react-icons/ai";
 import TapItem from "./TapItem";
+import TextInputs from "./PostForm/TextInputs";
 
 type NewPostFormProps = {};
 
@@ -38,6 +39,11 @@ export type TabItem = {
 
 const NewPostForm: React.FC<NewPostFormProps> = () => {
   const [selectedTab, setSelectedTab] = useState(formTabs[0].title);
+  const [textInputs, setTextInputs] = useState({
+    title: "",
+    body: "",
+  });
+  const [selectedFile, setSelectedFile] = useState<string>();
 
   const handleCreatePost = async () => {};
 
@@ -46,7 +52,7 @@ const NewPostForm: React.FC<NewPostFormProps> = () => {
   const onTextChange = () => {};
 
   return (
-    <Flex direction="column" bg="white" borderRadius={4} mt={2}>
+    <Flex direction="column" bg="white" borderRadius="4px" mt={2}>
       <Flex width="100%">
         {formTabs.map((item) => (
           <TapItem
@@ -56,6 +62,7 @@ const NewPostForm: React.FC<NewPostFormProps> = () => {
           />
         ))}
       </Flex>
+      <Flex>{<TextInputs />}</Flex>
     </Flex>
   );
 };
