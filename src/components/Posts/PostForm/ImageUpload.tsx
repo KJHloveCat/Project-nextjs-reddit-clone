@@ -27,9 +27,9 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
         width="100%"
         borderRadius={4}
       >
-        {selectedFile?.map((image) => (
+        {selectedFile?.map((image, index) => (
           <>
-            <Image src={image} maxWidth="600px" />
+            <Image key={index} src={image} maxWidth="600px" />
             <Button
               top={-7}
               display="relative"

@@ -1,4 +1,14 @@
-import { Checkbox, Flex, Icon, Link, Text } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+  Checkbox,
+  Flex,
+  Icon,
+  Link,
+  Text,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { BsLink45Deg, BsMic } from "react-icons/bs";
 import { BiPoll } from "react-icons/bi";
@@ -7,8 +17,24 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import TapItem from "./TapItem";
 import TextInputs from "./PostForm/TextInputs";
 import ImageUpload from "./PostForm/ImageUpload";
+import { Post } from "@/src/atoms/postsAtom";
+import { User } from "firebase/auth";
+import { useRouter } from "next/router";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  setDoc,
+  Timestamp,
+  updateDoc,
+} from "firebase/firestore";
+import { firestore, storage } from "@/src/firebase/clientApp";
+import { getDownloadURL, ref, uploadString } from "firebase/storage";
 
-type NewPostFormProps = {};
+type NewPostFormProps = {
+  user: User;
+};
 
 const formTabs: TabItem[] = [
   {
@@ -38,7 +64,8 @@ export type TabItem = {
   icon: typeof Icon.arguments;
 };
 
-const NewPostForm: React.FC<NewPostFormProps> = () => {
+const NewPostForm: React.FC<NewPostFormProps> = ({ user }) => {
+  const router = useRouter();
   const [selectedTab, setSelectedTab] = useState(formTabs[0].title);
   const [textInputs, setTextInputs] = useState({
     title: "",
@@ -46,8 +73,55 @@ const NewPostForm: React.FC<NewPostFormProps> = () => {
   });
   const [selectedFile, setSelectedFile] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const { communityId } = router.query;
 
-  const handleCreatePost = async () => {};
+  const handleCreatePost = async () => {
+    setLoading(true);
+    const { title, body } = textInputs;
+    try {
+      // store the post in db
+      const postDocRef = await addDoc(
+        collection(firestore, "posts"),
+
+        {
+          communityId,
+          creatorId: user?.uid,
+          title,
+          body,
+          numberOfComments: 0,
+          voteStatus: 0,
+          createdAt: serverTimestamp(),
+        }
+      );
+
+      // check for selectedFile
+      if (selectedFile) {
+        // store in storage => getDownloadURL (return imageURL)
+
+        const postsImages: string[] = [];
+
+        for (let i = 0; i < selectedFile.length; i++) {
+          const imageRef = ref(storage, `posts/${postDocRef.id}/image${i}`);
+          await uploadString(imageRef, selectedFile[i], "data_url");
+          const downloadURL = await getDownloadURL(imageRef);
+
+          postsImages.push(downloadURL);
+        }
+        console.log(postsImages);
+        await updateDoc(postDocRef, {
+          imageURL: postsImages,
+        });
+      }
+
+      // redirect the user back to the communityPage using the router
+      router.back();
+    } catch (error: any) {
+      console.log("handleCreatePost Error", error.message);
+      setError(true);
+    }
+    setLoading(false);
+  };
 
   const onSelectImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
@@ -132,6 +206,13 @@ const NewPostForm: React.FC<NewPostFormProps> = () => {
           Connect accounts to share your post
         </Link>
       </Flex>
+      {error && (
+        <Alert status="error">
+          <AlertIcon />
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>Error Creating Post.</AlertDescription>
+        </Alert>
+      )}
     </Flex>
   );
 };
