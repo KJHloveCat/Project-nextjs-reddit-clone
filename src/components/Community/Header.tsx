@@ -1,15 +1,18 @@
 import { Community } from "@/src/atoms/communitiesAtom";
 import { UpDownIcon } from "@/src/components/Community/HeaderIcon";
 import { Box, Button, Flex, Icon, Image, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useCommunityData from "@/src/hooks/useCommunityData";
 import { BellIcon } from "@chakra-ui/icons";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/src/firebase/clientApp";
 
 type HeaderProps = {
   communityData: Community;
 };
 
 const Header: React.FC<HeaderProps> = ({ communityData }) => {
+  const [user] = useAuthState(auth);
   const [onBtnText, setOnBtnText] = useState("Joined");
   const { communityStateValue, onJoinOrLeaveCommunity, loading } =
     useCommunityData();
@@ -26,12 +29,26 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
   }
 
   return (
-    <Flex direction="column" width="100%" height="146px">
-      <Box height="50%" bg="#33a8ff" />
+    <Flex direction="column" width="100%" height="300px">
+      {communityData.BannerURL ? (
+        <Image
+          height="70%"
+          src={communityStateValue.currentCommunity?.BannerURL}
+        />
+      ) : (
+        <Box height="50%" bg="#33a8ff" />
+      )}
       <Flex justify="center" bg="white" flexGrow={1}>
         <Flex width="95%" maxWidth="990px">
           {communityData.imageURL ? (
-            <Image />
+            <Image
+              top={-3}
+              boxSizing="border-box"
+              position="relative"
+              src={communityStateValue.currentCommunity?.imageURL}
+              boxSize="76px"
+              borderRadius="full"
+            />
           ) : (
             <Icon
               top={-3}
@@ -57,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
 
             <Flex mt={2}>
               <Button
-                variant={isJoined ? "outline" : "solid"}
+                variant={isJoined && user ? "outline" : "solid"}
                 fontWeight="700"
                 fontSize="14px"
                 width="96px"
@@ -67,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
                 onMouseOver={over}
                 onMouseOut={out}
               >
-                {isJoined ? onBtnText : "Join"}
+                {isJoined && user ? onBtnText : "Join"}
               </Button>
               {isJoined && (
                 <Button

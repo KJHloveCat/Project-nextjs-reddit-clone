@@ -20,19 +20,23 @@ import { useResetRecoilState, useSetRecoilState } from "recoil";
 import { authModalState } from "@/src/atoms/authModalAtom";
 import { auth } from "@/src/firebase/clientApp";
 import { communityState } from "@/src/atoms/communitiesAtom";
+import { useRouter } from "next/router";
 
 type UserMenuProps = {
   user?: User | null;
 };
 
 const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
+  const router = useRouter();
+  const { communityId } = router.query;
   const resetCommunityState = useResetRecoilState(communityState);
   const setAuthModalState = useSetRecoilState(authModalState);
 
   const logout = async () => {
     await signOut(auth);
-    resetCommunityState();
+    // resetCommunityState();
     // clear community state
+    // router.push(`/r/${communityId}`);
   };
 
   return (

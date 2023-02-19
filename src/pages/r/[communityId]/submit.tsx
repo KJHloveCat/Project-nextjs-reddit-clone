@@ -29,7 +29,7 @@ const SubmitPostPage: React.FC = () => {
         <Box w="310px" bg="tomato" mt={10}>
           This is Box
         </Box>
-        {/* About */}{" "}
+        {/* About */}
       </>
     </PostPageContent>
   );
