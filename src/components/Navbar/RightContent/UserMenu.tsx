@@ -28,15 +28,10 @@ type UserMenuProps = {
 
 const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
   const router = useRouter();
-  const { communityId } = router.query;
-  const resetCommunityState = useResetRecoilState(communityState);
   const setAuthModalState = useSetRecoilState(authModalState);
 
   const logout = async () => {
     await signOut(auth);
-    // resetCommunityState();
-    // clear community state
-    // router.push(`/r/${communityId}`);
   };
 
   return (

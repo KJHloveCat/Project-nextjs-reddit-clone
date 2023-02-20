@@ -35,14 +35,15 @@ import { GoGift } from "react-icons/go";
 import { TfiShare } from "react-icons/tfi";
 import moment from "moment";
 import { HiOutlineChat } from "react-icons/hi";
+import { useRouter } from "next/router";
 
 type PostItemProps = {
   post: Post;
   userIsCreator: boolean;
   userVoteValue?: number;
-  onVote: () => {};
+  onVote: (post: Post, vote: number, communityId: string) => void;
   onDeletePost: (post: Post) => Promise<boolean>;
-  onSelectPost: () => void;
+  onSelectPost?: (post: Post) => void;
 };
 
 const PostItem: React.FC<PostItemProps> = ({
@@ -55,7 +56,8 @@ const PostItem: React.FC<PostItemProps> = ({
 }) => {
   const [error, setError] = useState("");
   const [loadingDelete, setLoadingDelete] = useState(false);
-
+  const router = useRouter();
+  const singlePostPage = !onSelectPost;
   const handleDelete = async () => {
     setLoadingDelete(true);
     try {
@@ -66,44 +68,57 @@ const PostItem: React.FC<PostItemProps> = ({
       }
 
       console.log("Post was successfully delete");
+      if (singlePostPage) {
+        router.push(`/r/${post.communityId}`);
+      }
     } catch (error: any) {
       setError(error.message);
     }
 
     setLoadingDelete(false);
   };
+
   return (
     <Flex
       border="1px solid"
       bg="white"
-      borderColor="gray.300"
-      borderRadius={4}
-      _hover={{ borderColor: "gray.500" }}
-      cursor="pointer"
+      borderColor={singlePostPage ? "white" : "gray.300"}
+      borderRadius={"4px"}
+      _hover={{ borderColor: singlePostPage ? "none" : "gray.500" }}
+      cursor={singlePostPage ? "unset" : "pointer"}
+      onClick={() => {
+        onSelectPost && onSelectPost(post);
+      }}
     >
       <Flex
         direction="column"
         align="center"
-        bg="rgba(135,138,140,0.1)"
+        bg={singlePostPage ? "white" : "rgba(135,138,140,0.1)"}
         p={2}
         width="40px"
         borderRadius={4}
       >
         <Icon
-          as={false ? BsArrowUpCircleFill : BsArrowUpCircle}
-          color={false ? "#ff4500" : "#878a8c"}
+          as={userVoteValue === 1 ? BsArrowUpCircleFill : BsArrowUpCircle}
+          color={userVoteValue === 1 ? "#ff4500" : "#878a8c"}
           fontSize={22}
-          onClick={onVote}
+          onClick={(event: React.MouseEvent) => {
+            event.stopPropagation();
+            onVote(post, 1, post.communityId);
+          }}
           _hover={{ bg: "rgba(135,138,140,0.2)", color: "#ff4500" }}
         />
         <Text margin="5px 0px" fontSize="9pt">
           {post.voteStatus}
         </Text>
         <Icon
-          as={false ? BsArrowDownCircleFill : BsArrowDownCircle}
-          color={false ? "#7193ff" : "#878a8c"}
+          as={userVoteValue === -1 ? BsArrowDownCircleFill : BsArrowDownCircle}
+          color={userVoteValue === -1 ? "#7193ff" : "#878a8c"}
           fontSize={22}
-          onClick={onVote}
+          onClick={(event: React.MouseEvent) => {
+            event.stopPropagation();
+            onVote(post, -1, post.communityId);
+          }}
           _hover={{ bg: "rgba(135,138,140,0.2)", color: "#7193ff" }}
         />
       </Flex>
@@ -119,7 +134,7 @@ const PostItem: React.FC<PostItemProps> = ({
           <Stack direction="row" spacing={0.6} align="center">
             {/* Homepage Check */}
             <Text fontSize="9pt" color="#787C7E" mr={1}>
-              Posted by u/{post.creatorDisplayName}
+              Posted by u/{post.creatorEmail} {post.creatorDisplayName}
             </Text>
             <Text fontSize="9pt" color="#787C7E">
               {moment(new Date(post.createdAt?.seconds * 1000)).fromNow()}
@@ -172,7 +187,10 @@ const PostItem: React.FC<PostItemProps> = ({
                 p="8px"
                 cursor="pointer"
                 _hover={{ bg: "#1A1A1B1A" }}
-                onClick={handleDelete}
+                onClick={(event: React.MouseEvent) => {
+                  event.stopPropagation();
+                  handleDelete();
+                }}
               >
                 {loadingDelete ? (
                   <Spinner size="sm" />

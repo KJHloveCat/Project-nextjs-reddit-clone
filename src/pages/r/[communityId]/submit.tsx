@@ -9,9 +9,9 @@ import { useRecoilValue } from "recoil";
 
 const SubmitPostPage: React.FC = () => {
   const [user] = useAuthState(auth);
-  const communityStateValue = useRecoilValue(communityState);
 
-  console.log("COMMUNITY", communityStateValue);
+  if (!user) {
+  }
   return (
     <PostPageContent>
       <>
@@ -21,14 +21,22 @@ const SubmitPostPage: React.FC = () => {
           padding="4px"
           height="41px"
         >
-          <Text fontWeight={600}>Create a post</Text>
+          {user && <Text fontWeight={600}>Create a post</Text>}
+          {!user && (
+            <Text fontWeight={600}>
+              You need to login before submit the post!
+            </Text>
+          )}
         </Box>
         {user && <NewPostForm user={user} />}
       </>
       <>
-        <Box w="310px" bg="tomato" mt={10}>
-          This is Box
-        </Box>
+        {user && (
+          <Box w="310px" bg="tomato" mt={10}>
+            This is Box
+          </Box>
+        )}
+
         {/* About */}
       </>
     </PostPageContent>

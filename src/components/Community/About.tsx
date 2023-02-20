@@ -146,7 +146,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
             <Icon as={HiOutlineCake} boxSize={21} mr={1} />
 
             <Text fontSize="14px" color="#7C7C7C">
-              Created
+              Created{" "}
               {moment(new Date(communityData.createdAt.seconds * 1000)).format(
                 "MMM DD, YYYY"
               )}
@@ -262,7 +262,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
                     _hover={{ textDecoration: "underline" }}
                     onClick={() => selectedFileRef.current?.click()}
                   >
-                    Change Image
+                    Change Logo
                   </Text>
                   {communityData.imageURL || selectedFile ? (
                     <Image
@@ -296,7 +296,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
                     _hover={{ textDecoration: "underline" }}
                     onClick={() => selectedBannerRef.current?.click()}
                   >
-                    Change Images
+                    Change Banner
                   </Text>
                   {communityData.BannerURL || selectedBanner ? (
                     <Image
@@ -304,6 +304,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
                       borderRadius="full"
                       boxSize="40px"
                       alt="Community Banner"
+                      mr={5}
                     />
                   ) : (
                     <Icon

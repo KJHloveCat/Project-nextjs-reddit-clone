@@ -6,6 +6,7 @@ export type Post = {
   communityId: string;
   creatorId: string;
   creatorDisplayName: string;
+  creatorEmail: string;
   title: string;
   body: string;
   numberOfComments: number;
@@ -15,19 +16,23 @@ export type Post = {
   createdAt: Timestamp;
 };
 
-export interface ImageSnippet {
-  imageURL?: string;
-}
+export type PostVote = {
+  id: string;
+  postId: string;
+  communityId: string;
+  voteValue: number;
+};
 
 interface PostState {
   selectedPost: Post | null;
   posts: Post[];
-  //postVotes
+  postVotes: PostVote[];
 }
 
 const defaultPostState: PostState = {
   selectedPost: null,
   posts: [],
+  postVotes: [],
 };
 
 export const postState = atom({
