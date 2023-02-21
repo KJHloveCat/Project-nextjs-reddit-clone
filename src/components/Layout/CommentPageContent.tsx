@@ -9,8 +9,8 @@ const CommentPageContent: React.FC<CommentPageContentProps> = ({
   children,
 }) => {
   return (
-    <Flex justify="center" p="20px 24px 0px 24px ">
-      <Flex width="100%" maxWidth="1200px">
+    <Flex justify="center" p="20px 24px 24px 24px ">
+      <Flex width="100%" maxWidth="1000px">
         {/* LHS (Left Hand Side) */}
         <Flex
           direction="column"

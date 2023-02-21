@@ -23,6 +23,7 @@ const PostPageContent: React.FC<PostPageContent> = ({ children }) => {
           direction="column"
           display={{ base: "none", lg: "flex" }}
           flexGrow={1}
+          mt="45px"
         >
           {children && children[1 as keyof typeof children]}
         </Flex>

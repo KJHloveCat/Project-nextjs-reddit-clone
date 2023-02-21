@@ -36,9 +36,10 @@ import useCommunityData from "@/src/hooks/useCommunityData";
 
 type AboutProps = {
   communityData: Community;
+  about?: boolean;
 };
 
-const About: React.FC<AboutProps> = ({ communityData }) => {
+const About: React.FC<AboutProps> = ({ communityData, about }) => {
   const [user] = useAuthState(auth);
   const router = useRouter();
   console.log(communityData);
@@ -56,6 +57,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
   const selectedFileRef = useRef<HTMLInputElement>(null);
   const selectedBannerRef = useRef<HTMLInputElement>(null);
   const setCommunityStateValue = useSetRecoilState(communityState);
+
   const onUpdateImage = async () => {
     if (!selectedFile) return;
     setUploadingImage(true);
@@ -156,7 +158,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
           <Flex
             direction="row"
             borderTop="1px solid #1A1A1B12"
-            borderBottom="1px solid #1A1A1B12"
+            borderBottom={about ? "1px solid #1A1A1B12" : "unset"}
             p="16px 0px"
             justifyContent="space-between"
           >
@@ -220,16 +222,19 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
               </Text>
             </Flex>
           </Flex>
-          <Link href={`/r/${router.query.communityId}/submit`}>
-            <Button width="100%" fontSize="14px" height="32px" bg="#0079d3">
-              Create Post
-            </Button>
-          </Link>
+
+          {about && (
+            <Link href={`/r/${router.query.communityId}/submit`}>
+              <Button width="100%" fontSize="14px" height="32px" bg="#0079d3">
+                Create Post
+              </Button>
+            </Link>
+          )}
 
           <Flex
             width="100%"
             direction="column"
-            borderTop="1px solid #1A1A1B12"
+            borderTop={"1px solid #1A1A1B12"}
             borderBottom="1px solid #1A1A1B12"
             p="16px 0px"
           >
@@ -251,7 +256,8 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
               />
             </Flex>
           </Flex>
-          {user?.uid === communityData.creatorId && (
+
+          {user?.uid === communityData.creatorId && about ? (
             <>
               <Stack fontSize="11px">
                 <Text fontWeight={700}>Admin</Text>
@@ -342,6 +348,8 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
                 <Divider />
               </Stack>
             </>
+          ) : (
+            ""
           )}
 
           <Button

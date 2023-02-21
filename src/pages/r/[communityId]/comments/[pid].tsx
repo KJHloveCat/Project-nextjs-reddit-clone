@@ -1,6 +1,7 @@
 import { Post } from "@/src/atoms/postsAtom";
 import About from "@/src/components/Community/About";
 import CommentPageContent from "@/src/components/Layout/CommentPageContent";
+import Comments from "@/src/components/Posts/Comments/Comments";
 import PostItem from "@/src/components/Posts/PostItem";
 import { auth, firestore } from "@/src/firebase/clientApp";
 import useCommunityData from "@/src/hooks/useCommunityData";
@@ -16,6 +17,7 @@ const PostPage: React.FC = () => {
   const { postStateValue, setPostStateValue, onDeletePost, onVote } =
     usePosts();
   const router = useRouter();
+  const { communityId } = router.query;
   const { communityStateValue } = useCommunityData();
 
   const fetchPost = async (postId: string) => {
@@ -53,9 +55,13 @@ const PostPage: React.FC = () => {
             userIsCreator={user?.uid === postStateValue.selectedPost?.creatorId}
           />
         )}
-        {/* Comments */}
-      </>
 
+        <Comments
+          user={user!}
+          communityId={communityId as string}
+          selectedPost={postStateValue.selectedPost}
+        />
+      </>
       <>
         {communityStateValue.currentCommunity && (
           <About communityData={communityStateValue.currentCommunity} />

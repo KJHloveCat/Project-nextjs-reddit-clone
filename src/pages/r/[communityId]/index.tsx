@@ -39,7 +39,7 @@ const CommunityPage: React.FC<CommunityPageProps> = ({ communityData }) => {
           <Posts communityData={communityData} />
         </>
         <>
-          <About communityData={communityData} />
+          <About communityData={communityData} about={true} />
         </>
       </PageContent>
     </>
