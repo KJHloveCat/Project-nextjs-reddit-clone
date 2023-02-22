@@ -1,4 +1,8 @@
-import { Community, communityState } from "@/src/atoms/communitiesAtom";
+import {
+  Community,
+  CommunitySnippet,
+  communityState,
+} from "@/src/atoms/communitiesAtom";
 import { UpDownIcon } from "./HeaderIcon";
 import {
   Box,
@@ -42,7 +46,6 @@ type AboutProps = {
 const About: React.FC<AboutProps> = ({ communityData, about }) => {
   const [user] = useAuthState(auth);
   const router = useRouter();
-  console.log(communityData);
   const [CommunityOptions, setCommunityOptions] = useState(false);
   const {
     selectedFile,
@@ -68,6 +71,18 @@ const About: React.FC<AboutProps> = ({ communityData, about }) => {
       await updateDoc(doc(firestore, "communities", communityData.id), {
         imageURL: downloadURL,
       });
+
+      await updateDoc(
+        doc(
+          firestore,
+          `users/${user?.uid}/communitySnippets`,
+          communityData.id
+        ),
+        {
+          imageURL: downloadURL,
+        }
+      );
+
       setCommunityStateValue((prev) => ({
         ...prev,
         currentCommunity: {
