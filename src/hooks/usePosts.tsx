@@ -137,7 +137,9 @@ const usePosts = () => {
       batch.update(postRef, { voteStatus: voteStatus + voteChange });
 
       await batch.commit();
-    } catch (error: any) {}
+    } catch (error) {
+      console.log("vote error", error);
+    }
   };
 
   const onSelectPost = (post: Post) => {

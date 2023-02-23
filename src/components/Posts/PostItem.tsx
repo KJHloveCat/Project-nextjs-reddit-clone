@@ -1,4 +1,5 @@
 import { Post } from "@/src/atoms/postsAtom";
+import { UpDownIcon } from "../Community/HeaderIcon";
 import {
   Flex,
   Image,
@@ -36,6 +37,7 @@ import { TfiShare } from "react-icons/tfi";
 import moment from "moment";
 import { HiOutlineChat } from "react-icons/hi";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 type PostItemProps = {
   post: Post;
@@ -44,6 +46,7 @@ type PostItemProps = {
   onVote: (post: Post, vote: number, communityId: string) => void;
   onDeletePost: (post: Post) => Promise<boolean>;
   onSelectPost?: (post: Post) => void;
+  homePage?: boolean;
 };
 
 const PostItem: React.FC<PostItemProps> = ({
@@ -53,6 +56,7 @@ const PostItem: React.FC<PostItemProps> = ({
   onVote,
   onDeletePost,
   onSelectPost,
+  homePage,
 }) => {
   const [error, setError] = useState("");
   const [loadingDelete, setLoadingDelete] = useState(false);
@@ -103,12 +107,12 @@ const PostItem: React.FC<PostItemProps> = ({
           color={userVoteValue === 1 ? "#ff4500" : "#878a8c"}
           fontSize={22}
           onClick={(event: React.MouseEvent) => {
-            event.stopPropagation();
             onVote(post, 1, post.communityId);
+            event.stopPropagation();
           }}
           _hover={{ bg: "rgba(135,138,140,0.2)", color: "#ff4500" }}
         />
-        <Text margin="5px 0px" fontSize="9pt">
+        <Text margin="5px 0px" fontSize="9pt" fontWeight={700}>
           {post.voteStatus}
         </Text>
         <Icon
@@ -116,8 +120,8 @@ const PostItem: React.FC<PostItemProps> = ({
           color={userVoteValue === -1 ? "#7193ff" : "#878a8c"}
           fontSize={22}
           onClick={(event: React.MouseEvent) => {
-            event.stopPropagation();
             onVote(post, -1, post.communityId);
+            event.stopPropagation();
           }}
           _hover={{ bg: "rgba(135,138,140,0.2)", color: "#7193ff" }}
         />
@@ -133,6 +137,36 @@ const PostItem: React.FC<PostItemProps> = ({
         <Stack spacing={1} p="8px">
           <Stack direction="row" spacing={0.6} align="center">
             {/* Homepage Check */}
+            {homePage && (
+              <>
+                {post.communityImageURL ? (
+                  <Image
+                    src={post.communityImageURL}
+                    borderRadius="full"
+                    boxSize="12px"
+                    mr={2}
+                  />
+                ) : (
+                  <Icon
+                    as={UpDownIcon}
+                    boxSize={21}
+                    mr={1}
+                    color={"blue.500"}
+                  />
+                )}
+                <Link href={`r/${post.communityId}`}>
+                  <Text
+                    fontWeight={700}
+                    fontSize="12px"
+                    _hover={{ textDecoration: "underline" }}
+                    onClick={(event: React.MouseEvent) => {
+                      event.stopPropagation();
+                    }}
+                  >{`r/${post.communityId}`}</Text>
+                </Link>
+                <Icon as={BsDot} color="gray.500" fontSize="8px" />
+              </>
+            )}
             <Text fontSize="9pt" color="#787C7E" mr={1}>
               Posted by u/{post.creatorEmail} {post.creatorDisplayName}
             </Text>

@@ -1,3 +1,4 @@
+import { ComponentWithAs, IconProps } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { TiHome } from "react-icons/ti";
 import { atom } from "recoil";
@@ -5,7 +6,7 @@ import { atom } from "recoil";
 export type DirectoryMenuItem = {
   displayText: string;
   link: string;
-  icon: IconType;
+  icon: IconType | ComponentWithAs<"svg", IconProps>;
   iconColor: string;
   imageURL?: string;
 };

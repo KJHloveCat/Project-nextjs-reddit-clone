@@ -37,7 +37,10 @@ const SubmitPostPage: React.FC = () => {
           >
             <Text fontWeight={600}>Create a post</Text>
           </Box>
-          <NewPostForm user={user} />
+          <NewPostForm
+            user={user}
+            communityImageURL={communityStateValue.currentCommunity?.imageURL}
+          />
         </>
       )}
 

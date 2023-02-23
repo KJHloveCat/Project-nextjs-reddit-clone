@@ -1,4 +1,4 @@
-import { Community } from "@/src/atoms/communitiesAtom";
+import { Community, communityState } from "@/src/atoms/communitiesAtom";
 import { UpDownIcon } from "@/src/components/Community/HeaderIcon";
 import { Box, Button, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
@@ -6,6 +6,7 @@ import useCommunityData from "@/src/hooks/useCommunityData";
 import { BellIcon } from "@chakra-ui/icons";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/src/firebase/clientApp";
+import { useRecoilState } from "recoil";
 
 type HeaderProps = {
   communityData: Community;
@@ -16,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
   const [onBtnText, setOnBtnText] = useState("Joined");
   const { communityStateValue, onJoinOrLeaveCommunity, loading } =
     useCommunityData();
+
   const isJoined = !!communityStateValue.mySnippets.find(
     (item) => item.communityId === communityData.id
   ); // read the communitySnippets
@@ -30,7 +32,8 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
 
   return (
     <Flex direction="column" width="100%" height="300px">
-      {communityData.BannerURL ? (
+      {communityData.BannerURL ||
+      communityStateValue.currentCommunity?.BannerURL ? (
         <Image
           height="70%"
           src={communityStateValue.currentCommunity?.BannerURL}
@@ -40,7 +43,8 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
       )}
       <Flex justify="center" bg="white" flexGrow={1}>
         <Flex width="95%" maxWidth="990px">
-          {communityData.imageURL ? (
+          {communityData.imageURL ||
+          communityStateValue.currentCommunity?.imageURL ? (
             <Image
               top={-3}
               boxSizing="border-box"

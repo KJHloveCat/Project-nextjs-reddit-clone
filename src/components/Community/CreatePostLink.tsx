@@ -1,3 +1,4 @@
+import useDirectory from "@/src/hooks/useDirectory";
 import { Flex, Icon, Input } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -10,6 +11,7 @@ import { IoImageOutline } from "react-icons/io5";
 type CreatePostProps = {};
 
 const CreatePostLink: React.FC<CreatePostProps> = () => {
+  const { toggleMenuOpen } = useDirectory();
   const router = useRouter();
   //   const { toggleMenuOpen } = useDirectory();
   const onClick = () => {
@@ -21,7 +23,7 @@ const CreatePostLink: React.FC<CreatePostProps> = () => {
       return;
     }
     // Open directory menu to select community to post to
-    // toggleMenuOpen();
+    toggleMenuOpen();
   };
   return (
     <Flex

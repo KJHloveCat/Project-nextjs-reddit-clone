@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 import { communityState } from "@/src/atoms/communitiesAtom";
 import MenuListItem from "./MenuListItem";
 import { FaReddit } from "react-icons/fa";
+import { UpDownIcon } from "../../Community/HeaderIcon";
 
 type CommunitiesProps = {};
 
@@ -38,7 +39,7 @@ const Communities: React.FC<CommunitiesProps> = () => {
           <MenuListItem
             key={snippet.communityId}
             displayText={`r/${snippet.communityId}`}
-            icon={FaReddit}
+            icon={UpDownIcon}
             link={`/r/${snippet.communityId}`}
             iconColor={"blue.500"}
             imageURL={snippet.imageURL}

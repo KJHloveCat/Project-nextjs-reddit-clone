@@ -1,6 +1,14 @@
 import { communityState } from "@/src/atoms/communitiesAtom";
 import useCommunityData from "@/src/hooks/useCommunityData";
-import { Flex, Image, MenuItem, Icon } from "@chakra-ui/react";
+import useDirectory from "@/src/hooks/useDirectory";
+import {
+  Flex,
+  Image,
+  MenuItem,
+  Icon,
+  ComponentWithAs,
+  IconProps,
+} from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React from "react";
 import { IconType } from "react-icons";
@@ -10,7 +18,7 @@ import { UpDownIcon } from "../../Community/HeaderIcon";
 type MenuListItemProps = {
   displayText: string;
   link: string;
-  icon: IconType;
+  icon: IconType | ComponentWithAs<"svg", IconProps>;
   iconColor: string;
   imageURL?: string;
 };
@@ -22,6 +30,7 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
   iconColor,
   imageURL,
 }) => {
+  const { onSelectMenuItem } = useDirectory();
   const router = useRouter();
   return (
     <MenuItem
@@ -29,7 +38,7 @@ const MenuListItem: React.FC<MenuListItemProps> = ({
       fontSize="10pt"
       _hover={{ bg: "gray.100" }}
       onClick={() => {
-        router.push(link);
+        onSelectMenuItem({ displayText, link, icon, iconColor, imageURL });
       }}
     >
       <Flex align="center">
