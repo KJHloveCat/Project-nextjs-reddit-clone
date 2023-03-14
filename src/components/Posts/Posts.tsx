@@ -64,9 +64,9 @@ const Posts: React.FC<PostsProps> = ({ communityData }) => {
         <PostLoader />
       ) : (
         <Stack>
-          {postStateValue.posts.map((item, index) => (
+          {postStateValue.posts.map((item) => (
             <PostItem
-              key={index}
+              key={item.id}
               post={item}
               userIsCreator={user?.uid === item.creatorId}
               userVoteValue={

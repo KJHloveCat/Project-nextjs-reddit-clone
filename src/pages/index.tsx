@@ -129,8 +129,8 @@ export default function Home() {
   }, [user, loadingUser]);
 
   useEffect(() => {
-    if (user && postStateValue.postVotes.length) getUserPostVotes();
-
+    if (user && postStateValue.postVotes) getUserPostVotes();
+    console.log("test");
     return () => {
       // cleanup Function
       setPostStateValue((prev) => ({
@@ -138,7 +138,7 @@ export default function Home() {
         postVotes: [],
       }));
     };
-  }, [user, postStateValue.posts]);
+  }, [user]);
 
   return (
     <PageContent>
