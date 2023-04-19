@@ -1,9 +1,8 @@
-<svg width="371.03456000000006" height="135.6" xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve">
-
+<svg width="371.03456000000006" height="135.6" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1">
  <g>
   <title>Layer 1</title>
-  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Arimo'" font-size="81" id="svg_1" y="95.19106" x="75.62951" stroke-width="0" stroke="#000" fill="#000000">beddit</text>
-  <rect stroke="#000" id="svg_7" height="9.90096" width="9.57093" y="34.7968" x="260.0259" stroke-width="0" fill="#0099ff"/>
-  <rect id="svg_8" height="0" width="0.33003" y="-1.50672" x="325.0422" stroke-width="0" stroke="#000" fill="#0099ff"/>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="1.6357" y="90.85669" id="svg_1" font-size="81" font-family="'Arimo'" text-anchor="start" xml:space="preserve" font-weight="bold">beddit</text>
+  <rect fill="#0099ff" stroke="#000" stroke-width="0" x="325.0422" y="-1.50672" width="0.33003" height="0" id="svg_8"/>
  </g>
+
 </svg>
