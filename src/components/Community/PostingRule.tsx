@@ -18,7 +18,7 @@ const PostingRule: React.FC<PostingRuleProps> = () => {
       <Flex direction="row" align="center">
         <Icon boxSize={39} as={FcReddit} mr={3} />
         <Text fontFamily={"IBM Plex Sans"} fontWeight={600} fontSize="16px">
-          Posting to Reddit
+          Posting to Beddit
         </Text>
       </Flex>
       <Divider margin="7px 0px" />
