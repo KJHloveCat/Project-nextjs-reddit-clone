@@ -2,8 +2,8 @@
 
  <g>
   <title>Layer 1</title>
-  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Arimo'" font-size="102" id="svg_1" y="75.71917" x="-6.21843" stroke-width="0" stroke="#000" fill="#000000">beddit</text>
-  <rect id="svg_7" height="11.88115" width="12.54122" y="0.14344" x="225.70257" stroke-width="0" stroke="#000" fill="#0099ff"/>
-  <rect id="svg_8" height="0" width="0.33003" y="-28.56934" x="270.91695" stroke-width="0" stroke="#000" fill="#0099ff"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Arimo'" font-size="81" id="svg_1" y="95.19106" x="75.62951" stroke-width="0" stroke="#000" fill="#000000">beddit</text>
+  <rect stroke="#000" id="svg_7" height="9.90096" width="9.57093" y="34.7968" x="260.0259" stroke-width="0" fill="#0099ff"/>
+  <rect id="svg_8" height="0" width="0.33003" y="-1.50672" x="325.0422" stroke-width="0" stroke="#000" fill="#0099ff"/>
  </g>
 </svg>
