@@ -65,7 +65,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
 
   const createCommunityHandler = async () => {
     // Validate the community
-    const format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const format = /[`!@#$%^&*()+\-=\[\]{};':"\\|,.<>\/?~]/;
     if (charsRemaining === 21) {
       setError("A community name is required");
       return;
@@ -107,7 +107,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
       });
       closeHandler();
       toggleMenuOpen();
-      router.push(`${communityName}`);
+      router.push(`r/${communityName}`);
     } catch (error: any) {
       console.log("Create Community error", error);
       setError(error.message);
