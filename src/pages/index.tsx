@@ -138,7 +138,7 @@ export default function Home() {
         postVotes: [],
       }));
     };
-  }, [user]);
+  }, [user, postStateValue.postVotes]);
 
   return (
     <PageContent>
