@@ -133,10 +133,10 @@ export default function Home() {
     console.log("test");
     return () => {
       // cleanup Function
-      setPostStateValue((prev) => ({
-        ...prev,
-        postVotes: [],
-      }));
+      // setPostStateValue((prev) => ({
+      //   ...prev,
+      //   postVotes: [],
+      // }));
     };
   }, [user]);
 
