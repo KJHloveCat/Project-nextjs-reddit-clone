@@ -138,7 +138,7 @@ export default function Home() {
         postVotes: [],
       }));
     };
-  }, [user, postStateValue]);
+  }, [user, communityStateValue.snippetsFetched]);
 
   return (
     <PageContent>
