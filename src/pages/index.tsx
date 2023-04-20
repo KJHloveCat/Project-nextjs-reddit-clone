@@ -133,10 +133,10 @@ export default function Home() {
     console.log("getUserPostVotes");
     return () => {
       //cleanup Function
-      setPostStateValue((prev) => ({
-        ...prev,
-        postVotes: [],
-      }));
+      // setPostStateValue((prev) => ({
+      //   ...prev,
+      //   postVotes: [],
+      // }));
     };
   }, [user, communityStateValue.snippetsFetched]);
 
