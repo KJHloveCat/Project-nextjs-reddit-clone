@@ -132,13 +132,13 @@ export default function Home() {
     if (user && postStateValue.postVotes) getUserPostVotes();
     console.log("getUserPostVotes");
     return () => {
-      // cleanup Function
-      // setPostStateValue((prev) => ({
-      //   ...prev,
-      //   postVotes: [],
-      // }));
+      //cleanup Function
+      setPostStateValue((prev) => ({
+        ...prev,
+        postVotes: [],
+      }));
     };
-  }, [user, postStateValue.postVotes]);
+  }, [user, postStateValue]);
 
   return (
     <PageContent>
