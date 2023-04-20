@@ -58,7 +58,7 @@ const PersonalHome: React.FC = () => {
       ></Flex>
       <Flex direction="column" p="12px">
         <Flex align="center" mb={2}>
-          <Image src="/images/redditFace.svg" fontSize={50} mr={2} />
+          <Image src="/images/redditFace.svg" height={50} mr={2} />
           <Text fontWeight={600}>Home</Text>
         </Flex>
         <Stack spacing={3}>
