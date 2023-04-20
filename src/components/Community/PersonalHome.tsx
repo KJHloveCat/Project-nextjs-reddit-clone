@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Flex, Icon, Stack, Text } from "@chakra-ui/react";
+import { Button, Flex, Icon, Image, Stack, Text } from "@chakra-ui/react";
 import { FaReddit } from "react-icons/fa";
 import useDirectory from "@/src/hooks/useDirectory";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -58,7 +58,7 @@ const PersonalHome: React.FC = () => {
       ></Flex>
       <Flex direction="column" p="12px">
         <Flex align="center" mb={2}>
-          <Icon as={FaReddit} fontSize={50} color="#00aeff" mr={2} />
+          <Image src="/images/redditFace.svg" fontSize={50} mr={2} />
           <Text fontWeight={600}>Home</Text>
         </Flex>
         <Stack spacing={3}>
