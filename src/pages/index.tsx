@@ -130,7 +130,7 @@ export default function Home() {
 
   useEffect(() => {
     if (user && postStateValue.postVotes) getUserPostVotes();
-    console.log("test");
+    console.log("getUserPostVotes");
     return () => {
       // cleanup Function
       // setPostStateValue((prev) => ({
