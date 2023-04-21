@@ -87,6 +87,24 @@ export default function Home() {
           ...prev,
           posts: posts as Post[],
         }));
+
+        const postIds = postStateValue.posts.map((post) => post.id);
+        console.log("postState Value : ", postStateValue.posts);
+        const postVotesQuery = query(
+          collection(firestore, `users/${user?.uid}/postVotes`),
+          where("postId", "in", postIds)
+        );
+        const postVotesDocs = await getDocs(postVotesQuery);
+        const postVotes = postVotesDocs.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        console.log(postVotes);
+        setPostStateValue((prev) => ({
+          ...prev,
+          postVotes: postVotes as PostVote[],
+        }));
       } else {
         buildNoUserHomeFeed();
       }
@@ -94,27 +112,6 @@ export default function Home() {
       console.log("buildUserHomeFeed Error", error);
     }
 
-    try {
-      const postIds = postStateValue.posts.map((post) => post.id);
-      console.log("postState Value : ", postStateValue.posts);
-      const postVotesQuery = query(
-        collection(firestore, `users/${user?.uid}/postVotes`),
-        where("postId", "in", postIds)
-      );
-      const postVotesDocs = await getDocs(postVotesQuery);
-      const postVotes = postVotesDocs.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-
-      console.log(postVotes);
-      setPostStateValue((prev) => ({
-        ...prev,
-        postVotes: postVotes as PostVote[],
-      }));
-    } catch (error) {
-      console.log("getUserPostVotes error", error);
-    }
     setLoading(false);
     //fetch some posts from each community that the user is in
   };
