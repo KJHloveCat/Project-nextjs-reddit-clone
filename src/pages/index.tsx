@@ -139,7 +139,7 @@ export default function Home() {
     //     postVotes: [],
     //   }));
     // };
-  }, [user, onVote]);
+  }, [user, postStateValue.postVotes]);
 
   return (
     <PageContent>
