@@ -130,7 +130,7 @@ export default function Home() {
   }, [user, loadingUser]);
 
   useEffect(() => {
-    if (user && postStateValue.posts) getUserPostVotes();
+    if (user && !postStateValue.postVotes) getUserPostVotes();
     console.log("getUserPostVotes0.2");
     return () => {
       // cleanup Function
