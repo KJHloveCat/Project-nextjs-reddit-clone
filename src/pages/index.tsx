@@ -89,7 +89,7 @@ export default function Home() {
           posts: posts as Post[],
         }));
 
-        const postIds = postStateValue.posts.map((post) => post.id);
+        const postIds = postDocs.docs.map((post) => post.id);
         console.log("postState Value : ", postStateValue.posts);
         const postVotesQuery = query(
           collection(firestore, `users/${user?.uid}/postVotes`),
