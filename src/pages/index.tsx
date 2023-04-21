@@ -95,7 +95,6 @@ export default function Home() {
     }
     setLoading(false);
     //fetch some posts from each community that the user is in
-    getUserPostVotes();
   };
 
   const buildNoUserHomeFeed = async () => {
@@ -131,7 +130,7 @@ export default function Home() {
   }, [user, loadingUser]);
 
   useEffect(() => {
-    if (user && !postStateValue.postVotes) getUserPostVotes();
+    if (user && postStateValue.posts) getUserPostVotes();
     console.log("getUserPostVotes0.2");
     // return () => {
     //   // cleanup Function
@@ -140,7 +139,7 @@ export default function Home() {
     //     postVotes: [],
     //   }));
     // };
-  }, [user, postStateValue.postVotes]);
+  }, [user, postStateValue.posts]);
 
   return (
     <PageContent>
