@@ -95,6 +95,7 @@ export default function Home() {
     }
     setLoading(false);
     //fetch some posts from each community that the user is in
+    getUserPostVotes();
   };
 
   const buildNoUserHomeFeed = async () => {
@@ -116,7 +117,6 @@ export default function Home() {
     } catch (error) {
       console.log("buildNoUserHomeFeed error", error);
     }
-    getUserPostVotes();
     setLoading(false);
   };
 
@@ -140,7 +140,7 @@ export default function Home() {
     //     postVotes: [],
     //   }));
     // };
-  }, [user, postStateValue.posts]);
+  }, [user, postStateValue.postVotes]);
 
   return (
     <PageContent>
