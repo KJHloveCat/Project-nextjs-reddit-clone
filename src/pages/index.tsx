@@ -133,13 +133,13 @@ export default function Home() {
   useEffect(() => {
     if (user && postStateValue.posts) getUserPostVotes();
     console.log("getUserPostVotes0.1");
-    return () => {
-      //cleanup Function
-      // setPostStateValue((prev) => ({
-      //   ...prev,
-      //   postVotes: [],
-      // }));
-    };
+    // return () => {
+    //   //cleanup Function
+    //   // setPostStateValue((prev) => ({
+    //   //   ...prev,
+    //   //   postVotes: [],
+    //   // }));
+    // };
   }, [user, postStateValue.posts]);
 
   return (
