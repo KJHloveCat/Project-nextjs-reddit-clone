@@ -83,6 +83,7 @@ export default function Home() {
           id: docs.id,
           ...docs.data(),
         }));
+        console.log(posts);
         setPostStateValue((prev) => ({
           ...prev,
           posts: posts as Post[],
