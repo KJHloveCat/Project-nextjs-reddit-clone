@@ -129,17 +129,17 @@ export default function Home() {
     if (!user && !loadingUser) buildNoUserHomeFeed();
   }, [user, loadingUser]);
 
-  useEffect(() => {
-    if (user && postStateValue.posts) getUserPostVotes();
-    console.log("getUserPostVotes0.2");
-    // return () => {
-    //   // cleanup Function
-    //   setPostStateValue((prev) => ({
-    //     ...prev,
-    //     postVotes: [],
-    //   }));
-    // };
-  }, [user, postStateValue.posts]);
+  // useEffect(() => {
+  //   if (user && postStateValue.posts) getUserPostVotes();
+  //   console.log("getUserPostVotes0.2");
+  //   // return () => {
+  //   //   // cleanup Function
+  //   //   setPostStateValue((prev) => ({
+  //   //     ...prev,
+  //   //     postVotes: [],
+  //   //   }));
+  //   // };
+  // }, [user, postStateValue.posts]);
 
   return (
     <PageContent>
