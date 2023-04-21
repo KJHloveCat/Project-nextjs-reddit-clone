@@ -111,6 +111,7 @@ export default function Home() {
         ...doc.data(),
       }));
 
+      console.log(postVotes);
       setPostStateValue((prev) => ({
         ...prev,
         postVotes: postVotes as PostVote[],
