@@ -3,15 +3,15 @@ import { IconType } from "react-icons";
 import { TiHome } from "react-icons/ti";
 import { atom } from "recoil";
 
-export type DirectoryMenuItem = {
+export interface DirectoryMenuItem {
   displayText: string;
   link: string;
   icon: IconType | ComponentWithAs<"svg", IconProps>;
   iconColor: string;
   imageURL?: string;
-};
+}
 
-interface DirectoryMenuState {
+export interface DirectoryMenuState {
   isOpen: boolean;
   selectedMenuItem: DirectoryMenuItem;
 }

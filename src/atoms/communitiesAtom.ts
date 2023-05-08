@@ -19,7 +19,7 @@ export interface CommunitySnippet {
   bannerURL?: string;
 }
 
-interface CommunityState {
+export interface CommunityState {
   mySnippets: CommunitySnippet[];
   currentCommunity?: Community;
   snippetsFetched: boolean;

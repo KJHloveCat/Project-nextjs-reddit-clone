@@ -1,0 +1,299 @@
+<svg version="1.1" baseProfile="full" width="3429.0" height="291.0" viewbox="0 0 3429 291" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+<desc >#.interface: fill=lightblue
+#.enumeration: fill=lightgreen
+#.type: fill=lightgray
+[&lt;interface&gt;AuthModalState|+open: boolean;+view: &quot;login&quot; \| &quot;signup&quot; \| &quot;resetPassword&quot;|]
+[&lt;interface&gt;Community|+id: string;+creatorId: string;+numberOfMembers: number;+privacyType: &quot;public&quot; \| &quot;restricted&quot; \| &quot;private&quot;;+createdAt: Timestamp;+imageURL: string \| undefined;+BannerURL: string \| undefined|]
+[&lt;interface&gt;CommunitySnippet|+communityId: string;+isModerator: boolean \| undefined;+imageURL: string \| undefined;+bannerURL: string \| undefined|]
+[&lt;interface&gt;CommunityState|+mySnippets: CommunitySnippet\[\];+currentCommunity: Community \| undefined;+snippetsFetched: boolean|]
+[&lt;interface&gt;DirectoryMenuState|+isOpen: boolean;+selectedMenuItem: DirectoryMenuItem|]
+[&lt;type&gt;DirectoryMenuItem|+displayText: string;+link: string;+icon: IconType \| ComponentWithAs&lt;&quot;svg&quot;, IconProps&gt;;+iconColor: string;+imageURL: string \| undefined|]
+[&lt;interface&gt;Post|+id: string;+communityId: string;+creatorId: string;+creatorDisplayName: string;+creatorEmail: string;+title: string;+body: string;+numberOfComments: number;+voteStatus: number;+imageURL: string\[\] \| undefined;+communityImageURL: string \| undefined;+createdAt: Timestamp|]
+[&lt;interface&gt;PostVote|+id: string;+postId: string;+communityId: string;+voteValue: number|]
+[&lt;interface&gt;PostState|+selectedPost: Post \| null;+posts: Post\[\];+postVotes: PostVote\[\]|]
+[&lt;type&gt;Data|+name: string|]</desc>
+<g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Helvetica" font-weight="normal" font-style="normal">
+<g transform="translate(0.5, 0.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round" stroke="#33322E">
+<g stroke="transparent" fill="transparent">
+<rect x="0.0" y="0.0" height="291.0" width="3429.0" stroke="none"></rect>
+</g>
+<g transform="translate(8, 8)" fill="#33322E">
+<g transform="translate(20, 20)">
+<g data-name="AuthModalState">
+<g fill="lightblue" stroke="#33322E" data-name="AuthModalState">
+<rect x="0.0" y="75.0" height="85.0" width="345.0" data-name="AuthModalState"></rect>
+<path d="M0.0 106.0 L345.0 106.0" fill="none" data-name="AuthModalState"></path>
+<path d="M0.0 152.0 L345.0 152.0" fill="none" data-name="AuthModalState"></path>
+</g>
+<g transform="translate(0, 75)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AuthModalState">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AuthModalState">
+<a id="src\atoms\authModalAtom.ts.AuthModalState" xlink:href="src\atoms\authModalAtom.ts"><text x="164.5" y="13.5" stroke="none" text-anchor="middle" data-name="AuthModalState">AuthModalState</text></a>
+
+</g>
+</g>
+<g transform="translate(0, 106)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AuthModalState">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AuthModalState">
+<text x="0.0" y="13.5" stroke="none" data-name="AuthModalState">+open: boolean</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AuthModalState">+view: &quot;login&quot; | &quot;signup&quot; | &quot;resetPassword&quot;</text>
+
+</g>
+</g>
+<g transform="translate(0, 152)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AuthModalState">
+<g transform="translate(8, 8)" fill="#33322E" data-name="AuthModalState">
+
+</g>
+</g>
+</g>
+<g data-name="Community">
+<g fill="lightblue" stroke="#33322E" data-name="Community">
+<rect x="385.0" y="38.0" height="160.0" width="373.0" data-name="Community"></rect>
+<path d="M385.0 69.0 L758.0 69.0" fill="none" data-name="Community"></path>
+<path d="M385.0 190.0 L758.0 190.0" fill="none" data-name="Community"></path>
+</g>
+<g transform="translate(385, 38)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Community">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Community">
+<a id="src\atoms\communitiesAtom.ts.Community" xlink:href="src\atoms\communitiesAtom.ts"><text x="178.5" y="13.5" stroke="none" text-anchor="middle" data-name="Community">Community</text></a>
+
+</g>
+</g>
+<g transform="translate(385, 69)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Community">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Community">
+<text x="0.0" y="13.5" stroke="none" data-name="Community">+id: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Community">+creatorId: string</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Community">+numberOfMembers: number</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Community">+privacyType: &quot;public&quot; | &quot;restricted&quot; | &quot;private&quot;</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Community">+createdAt: Timestamp</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Community">+imageURL: string | undefined</text>
+<text x="0.0" y="103.5" stroke="none" data-name="Community">+BannerURL: string | undefined</text>
+
+</g>
+</g>
+<g transform="translate(385, 190)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Community">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Community">
+
+</g>
+</g>
+</g>
+<g data-name="CommunitySnippet">
+<g fill="lightblue" stroke="#33322E" data-name="CommunitySnippet">
+<rect x="798.0" y="60.0" height="115.0" width="288.0" data-name="CommunitySnippet"></rect>
+<path d="M798.0 91.0 L1086.0 91.0" fill="none" data-name="CommunitySnippet"></path>
+<path d="M798.0 167.0 L1086.0 167.0" fill="none" data-name="CommunitySnippet"></path>
+</g>
+<g transform="translate(798, 60)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CommunitySnippet">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CommunitySnippet">
+<a id="src\atoms\communitiesAtom.ts.CommunitySnippet" xlink:href="src\atoms\communitiesAtom.ts"><text x="136.0" y="13.5" stroke="none" text-anchor="middle" data-name="CommunitySnippet">CommunitySnippet</text></a>
+
+</g>
+</g>
+<g transform="translate(798, 91)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CommunitySnippet">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CommunitySnippet">
+<text x="0.0" y="13.5" stroke="none" data-name="CommunitySnippet">+communityId: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CommunitySnippet">+isModerator: boolean | undefined</text>
+<text x="0.0" y="43.5" stroke="none" data-name="CommunitySnippet">+imageURL: string | undefined</text>
+<text x="0.0" y="58.5" stroke="none" data-name="CommunitySnippet">+bannerURL: string | undefined</text>
+
+</g>
+</g>
+<g transform="translate(798, 167)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CommunitySnippet">
+<g transform="translate(8, 8)" fill="#33322E" data-name="CommunitySnippet">
+
+</g>
+</g>
+</g>
+<g data-name="CommunityState">
+<g fill="lightblue" stroke="#33322E" data-name="CommunityState">
+<rect x="1126.0" y="68.0" height="100.0" width="362.0" data-name="CommunityState"></rect>
+<path d="M1126.0 99.0 L1488.0 99.0" fill="none" data-name="CommunityState"></path>
+<path d="M1126.0 160.0 L1488.0 160.0" fill="none" data-name="CommunityState"></path>
+</g>
+<g transform="translate(1126, 68)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CommunityState">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CommunityState">
+<a id="src\atoms\communitiesAtom.ts.CommunityState" xlink:href="src\atoms\communitiesAtom.ts"><text x="173.0" y="13.5" stroke="none" text-anchor="middle" data-name="CommunityState">CommunityState</text></a>
+
+</g>
+</g>
+<g transform="translate(1126, 99)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CommunityState">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CommunityState">
+<text x="0.0" y="13.5" stroke="none" data-name="CommunityState">+mySnippets: CommunitySnippet[]</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CommunityState">+currentCommunity: Community | undefined</text>
+<text x="0.0" y="43.5" stroke="none" data-name="CommunityState">+snippetsFetched: boolean</text>
+
+</g>
+</g>
+<g transform="translate(1126, 160)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CommunityState">
+<g transform="translate(8, 8)" fill="#33322E" data-name="CommunityState">
+
+</g>
+</g>
+</g>
+<g data-name="DirectoryMenuState">
+<g fill="lightblue" stroke="#33322E" data-name="DirectoryMenuState">
+<rect x="1528.0" y="75.0" height="85.0" width="330.0" data-name="DirectoryMenuState"></rect>
+<path d="M1528.0 106.0 L1858.0 106.0" fill="none" data-name="DirectoryMenuState"></path>
+<path d="M1528.0 152.0 L1858.0 152.0" fill="none" data-name="DirectoryMenuState"></path>
+</g>
+<g transform="translate(1528, 75)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DirectoryMenuState">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DirectoryMenuState">
+<a id=".DirectoryMenuState" xlink:href=""><text x="157.0" y="13.5" stroke="none" text-anchor="middle" data-name="DirectoryMenuState">DirectoryMenuState</text></a>
+
+</g>
+</g>
+<g transform="translate(1528, 106)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DirectoryMenuState">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DirectoryMenuState">
+<text x="0.0" y="13.5" stroke="none" data-name="DirectoryMenuState">+isOpen: boolean</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DirectoryMenuState">+selectedMenuItem: DirectoryMenuItem</text>
+
+</g>
+</g>
+<g transform="translate(1528, 152)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DirectoryMenuState">
+<g transform="translate(8, 8)" fill="#33322E" data-name="DirectoryMenuState">
+
+</g>
+</g>
+</g>
+<g data-name="DirectoryMenuItem">
+<g fill="lightgray" stroke="#33322E" data-name="DirectoryMenuItem">
+<rect x="1898.0" y="53.0" height="130.0" width="453.0" data-name="DirectoryMenuItem"></rect>
+<path d="M1898.0 84.0 L2351.0 84.0" fill="none" data-name="DirectoryMenuItem"></path>
+<path d="M1898.0 175.0 L2351.0 175.0" fill="none" data-name="DirectoryMenuItem"></path>
+</g>
+<g transform="translate(1898, 53)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DirectoryMenuItem">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DirectoryMenuItem">
+<a id="src\atoms\directoryMenuAtom.ts.DirectoryMenuItem" xlink:href="src\atoms\directoryMenuAtom.ts"><text x="218.5" y="13.5" stroke="none" text-anchor="middle" data-name="DirectoryMenuItem">DirectoryMenuItem</text></a>
+
+</g>
+</g>
+<g transform="translate(1898, 84)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DirectoryMenuItem">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DirectoryMenuItem">
+<text x="0.0" y="13.5" stroke="none" data-name="DirectoryMenuItem">+displayText: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DirectoryMenuItem">+link: string</text>
+<text x="0.0" y="43.5" stroke="none" data-name="DirectoryMenuItem">+icon: IconType | ComponentWithAs&lt;&quot;svg&quot;, IconProps&gt;</text>
+<text x="0.0" y="58.5" stroke="none" data-name="DirectoryMenuItem">+iconColor: string</text>
+<text x="0.0" y="73.5" stroke="none" data-name="DirectoryMenuItem">+imageURL: string | undefined</text>
+
+</g>
+</g>
+<g transform="translate(1898, 175)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DirectoryMenuItem">
+<g transform="translate(8, 8)" fill="#33322E" data-name="DirectoryMenuItem">
+
+</g>
+</g>
+</g>
+<g data-name="Post">
+<g fill="lightblue" stroke="#33322E" data-name="Post">
+<rect x="2391.0" y="0.0" height="235.0" width="342.0" data-name="Post"></rect>
+<path d="M2391.0 31.0 L2733.0 31.0" fill="none" data-name="Post"></path>
+<path d="M2391.0 227.0 L2733.0 227.0" fill="none" data-name="Post"></path>
+</g>
+<g transform="translate(2391, 0)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Post">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Post">
+<a id="src\atoms\postsAtom.ts.Post" xlink:href="src\atoms\postsAtom.ts"><text x="163.0" y="13.5" stroke="none" text-anchor="middle" data-name="Post">Post</text></a>
+
+</g>
+</g>
+<g transform="translate(2391, 31)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Post">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Post">
+<text x="0.0" y="13.5" stroke="none" data-name="Post">+id: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Post">+communityId: string</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Post">+creatorId: string</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Post">+creatorDisplayName: string</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Post">+creatorEmail: string</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Post">+title: string</text>
+<text x="0.0" y="103.5" stroke="none" data-name="Post">+body: string</text>
+<text x="0.0" y="118.5" stroke="none" data-name="Post">+numberOfComments: number</text>
+<text x="0.0" y="133.5" stroke="none" data-name="Post">+voteStatus: number</text>
+<text x="0.0" y="148.5" stroke="none" data-name="Post">+imageURL: string[] | undefined</text>
+<text x="0.0" y="163.5" stroke="none" data-name="Post">+communityImageURL: string | undefined</text>
+<text x="0.0" y="178.5" stroke="none" data-name="Post">+createdAt: Timestamp</text>
+
+</g>
+</g>
+<g transform="translate(2391, 227)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Post">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Post">
+
+</g>
+</g>
+</g>
+<g data-name="PostVote">
+<g fill="lightblue" stroke="#33322E" data-name="PostVote">
+<rect x="2773.0" y="60.0" height="115.0" width="180.0" data-name="PostVote"></rect>
+<path d="M2773.0 91.0 L2953.0 91.0" fill="none" data-name="PostVote"></path>
+<path d="M2773.0 167.0 L2953.0 167.0" fill="none" data-name="PostVote"></path>
+</g>
+<g transform="translate(2773, 60)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="PostVote">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="PostVote">
+<a id="src\atoms\postsAtom.ts.PostVote" xlink:href="src\atoms\postsAtom.ts"><text x="82.0" y="13.5" stroke="none" text-anchor="middle" data-name="PostVote">PostVote</text></a>
+
+</g>
+</g>
+<g transform="translate(2773, 91)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="PostVote">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="PostVote">
+<text x="0.0" y="13.5" stroke="none" data-name="PostVote">+id: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="PostVote">+postId: string</text>
+<text x="0.0" y="43.5" stroke="none" data-name="PostVote">+communityId: string</text>
+<text x="0.0" y="58.5" stroke="none" data-name="PostVote">+voteValue: number</text>
+
+</g>
+</g>
+<g transform="translate(2773, 167)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="PostVote">
+<g transform="translate(8, 8)" fill="#33322E" data-name="PostVote">
+
+</g>
+</g>
+</g>
+<g data-name="PostState">
+<g fill="lightblue" stroke="#33322E" data-name="PostState">
+<rect x="2993.0" y="68.0" height="100.0" width="216.0" data-name="PostState"></rect>
+<path d="M2993.0 99.0 L3209.0 99.0" fill="none" data-name="PostState"></path>
+<path d="M2993.0 160.0 L3209.0 160.0" fill="none" data-name="PostState"></path>
+</g>
+<g transform="translate(2993, 68)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="PostState">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="PostState">
+<a id="src\atoms\postsAtom.ts.PostState" xlink:href="src\atoms\postsAtom.ts"><text x="100.0" y="13.5" stroke="none" text-anchor="middle" data-name="PostState">PostState</text></a>
+
+</g>
+</g>
+<g transform="translate(2993, 99)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="PostState">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="PostState">
+<text x="0.0" y="13.5" stroke="none" data-name="PostState">+selectedPost: Post | null</text>
+<text x="0.0" y="28.5" stroke="none" data-name="PostState">+posts: Post[]</text>
+<text x="0.0" y="43.5" stroke="none" data-name="PostState">+postVotes: PostVote[]</text>
+
+</g>
+</g>
+<g transform="translate(2993, 160)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="PostState">
+<g transform="translate(8, 8)" fill="#33322E" data-name="PostState">
+
+</g>
+</g>
+</g>
+<g data-name="Data">
+<g fill="lightgray" stroke="#33322E" data-name="Data">
+<rect x="3249.0" y="83.0" height="70.0" width="124.0" data-name="Data"></rect>
+<path d="M3249.0 114.0 L3373.0 114.0" fill="none" data-name="Data"></path>
+<path d="M3249.0 145.0 L3373.0 145.0" fill="none" data-name="Data"></path>
+</g>
+<g transform="translate(3249, 83)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Data">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Data">
+<a id=".Data" xlink:href=""><text x="54.0" y="13.5" stroke="none" text-anchor="middle" data-name="Data">Data</text></a>
+
+</g>
+</g>
+<g transform="translate(3249, 114)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Data">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Data">
+<text x="0.0" y="13.5" stroke="none" data-name="Data">+name: string</text>
+
+</g>
+</g>
+<g transform="translate(3249, 145)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Data">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Data">
+
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>
